@@ -51,3 +51,11 @@
 {"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mServer running on port 8000\u001b[39m","service":"Blog-api","timestamp":"2024-06-15T19:03:06.956Z"}
 {"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mMongoDB Connected: ac-0bir6gv-shard-00-02.iwjajmw.mongodb.net\u001b[39m","service":"Blog-api","timestamp":"2024-06-15T19:03:42.618Z"}
 {"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mServer running on port 8000\u001b[39m","service":"Blog-api","timestamp":"2024-06-15T19:03:42.675Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mMongoDB Connected: ac-0bir6gv-shard-00-01.iwjajmw.mongodb.net\u001b[39m","service":"Blog-api","timestamp":"2024-06-15T19:04:25.051Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mServer running on port 8000\u001b[39m","service":"Blog-api","timestamp":"2024-06-15T19:04:25.085Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mMongoDB Connected: ac-0bir6gv-shard-00-01.iwjajmw.mongodb.net\u001b[39m","service":"Blog-api","timestamp":"2024-06-15T19:07:25.809Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mServer running on port 8000\u001b[39m","service":"Blog-api","timestamp":"2024-06-15T19:07:25.861Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mMongoDB Connected: ac-0bir6gv-shard-00-02.iwjajmw.mongodb.net\u001b[39m","service":"Blog-api","timestamp":"2024-06-15T19:12:56.610Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mServer running on port 8000\u001b[39m","service":"Blog-api","timestamp":"2024-06-15T19:12:56.657Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mMongoDB Connected: ac-0bir6gv-shard-00-02.iwjajmw.mongodb.net\u001b[39m","service":"Blog-api","timestamp":"2024-06-15T19:13:16.327Z"}
+{"level":"\u001b[32minfo\u001b[39m","message":"\u001b[32mServer running on port 8000\u001b[39m","service":"Blog-api","timestamp":"2024-06-15T19:13:16.373Z"}
