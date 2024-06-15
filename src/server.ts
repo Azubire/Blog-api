@@ -10,7 +10,11 @@ dotenv.config();
 
 connectDb().then(() => {
   // Create server
-  const server = restify.createServer();
+  const server = restify.createServer({
+    name: "Syncline API",
+    version: "1.0.0",
+    ignoreTrailingSlash: true,
+  });
   server.use(
     cors({
       origin: process.env.CORS_ORIGIN
@@ -19,6 +23,7 @@ connectDb().then(() => {
       credentials: true,
     })
   );
+  server.use(restify.plugins.throttle({ burst: 5, rate: 0.5, ip: true }));
   server.use(restify.plugins.bodyParser());
   server.use(restify.plugins.multipartBodyParser());
   server.use(morgan("dev"));

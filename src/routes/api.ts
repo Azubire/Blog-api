@@ -5,7 +5,7 @@ import authRouter from "./auth";
 
 const api = new router.Router();
 
-api.get("", (req: Request, res: Response, next: Next) => {
+api.get("/", (req: Request, res: Response, next: Next) => {
   res.status(200);
   res.json({
     success: true,
