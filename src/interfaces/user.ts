@@ -14,3 +14,16 @@ export interface IUser {
 export interface IUSerMethods {
   comparePassword(candidatePassword: string): Promise<boolean>;
 }
+
+// interface for user sign up
+export interface IAuthSignup {
+  userName: string;
+  email: string;
+  password: string;
+}
+
+// interface for user sign in
+export interface IAuthLogin {
+  email: string;
+  password: string;
+}
