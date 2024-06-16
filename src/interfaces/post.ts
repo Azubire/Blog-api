@@ -24,7 +24,6 @@ export interface IPost {
   author: IUser;
   category: ICategory;
   tags: string[];
-
   media: {
     type: "image" | "video";
     url: string;
@@ -34,21 +33,4 @@ export interface IPost {
   shares: number;
   createdAt: Date;
   updatedAt: Date;
-}
-
-export interface IUSerMethods {
-  comparePassword(candidatePassword: string): Promise<boolean>;
-}
-
-// interface for user sign up
-export interface IAuthSignup {
-  userName: string;
-  email: string;
-  password: string;
-}
-
-// interface for user sign in
-export interface IAuthLogin {
-  email: string;
-  password: string;
 }
