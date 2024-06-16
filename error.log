@@ -28,3 +28,4 @@
 {"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-16T17:34:40.950Z"}
 {"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-16T17:42:23.552Z"}
 {"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-16T17:43:04.107Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-16T18:05:12.302Z"}

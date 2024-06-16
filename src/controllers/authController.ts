@@ -75,7 +75,7 @@ export const signin = async (
     });
 
     req.session.regenerate(function (err: any) {
-      if (err) next(err);
+      if (err) throw new Error(err);
     });
 
     req.session.user = {
@@ -86,7 +86,7 @@ export const signin = async (
     };
 
     req.session.save(function (err: any) {
-      if (err) return next(err);
+      if (err) throw new Error(err);
     });
 
     res.json({
@@ -95,6 +95,28 @@ export const signin = async (
     });
     logger.info({
       session: req.session,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const logout = (
+  req: Request & { session: any },
+  res: Response,
+  next: Next
+) => {
+  try {
+    req.session.user = null;
+    req.session.destroy((err: any) => {
+      if (err) {
+        throw new Error(err);
+      }
+    });
+
+    res.json({
+      success: true,
+      message: "logged out successfully",
     });
   } catch (error) {
     next(error);
