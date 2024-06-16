@@ -15,6 +15,7 @@
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
     "@types/cors": "^2.8.17",
+    "@types/express-session": "^1.18.0",
     "@types/morgan": "^1.9.9",
     "@types/restify": "^8.5.12",
     "@types/restify-errors": "^4.3.9",
@@ -25,8 +26,10 @@
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "connect-mongo": "^5.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
+    "express-session": "^1.18.0",
     "joi": "^17.13.1",
     "mongoose": "^8.4.1",
     "restify": "^11.1.0",

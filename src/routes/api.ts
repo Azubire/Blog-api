@@ -2,10 +2,11 @@ import { Request, Response, Next } from "restify";
 import router from "restify-router";
 
 import authRouter from "./auth";
+import { authenticate } from "../middleware/authenticate";
 
 const api = new router.Router();
 
-api.get("/", (req: Request, res: Response, next: Next) => {
+api.get("/", authenticate, (req: Request, res: Response, next: Next) => {
   res.status(200);
   res.json({
     success: true,

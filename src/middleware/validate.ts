@@ -1,7 +1,7 @@
 import { Next, Request, Response } from "restify";
 import { TSchema, schemas } from "../database/schemas/index";
 import Errors from "restify-errors";
-import { HTTPStatusCode } from "../../shared/enums/http";
+import logger from "../utils/logger";
 
 const allowedMethods = ["post", "put", "patch", "delete"];
 const options = {
@@ -15,7 +15,8 @@ export const validate =
     const method = req?.method?.toLowerCase();
 
     if (method && !allowedMethods.includes(method)) {
-      return next();
+      logger.info("inside");
+      return next(new Errors.MethodNotAllowedError());
     }
 
     const schema = schemas[route];
@@ -26,6 +27,8 @@ export const validate =
     }
 
     const { error, value } = schema.validate(req.body, options);
+    // logger.error({ error });
+    // logger.info({ value });
 
     if (error) {
       const message = error.details.map(({ message, path, type }) => ({
@@ -35,10 +38,7 @@ export const validate =
 
       return next(
         new Errors.UnprocessableEntityError(
-          {
-            message: message,
-          },
-          "Validation Error"
+          message.map((m) => m.message).join(", ")
         )
       );
     }

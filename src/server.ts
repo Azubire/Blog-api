@@ -5,6 +5,9 @@ import logger from "./utils/logger";
 import cors from "cors";
 import api from "./routes/api";
 import morgan from "morgan";
+import session from "express-session";
+import connectMongo from "connect-mongo";
+import mongoose from "mongoose";
 
 dotenv.config();
 
@@ -15,6 +18,8 @@ connectDb().then(() => {
     version: "1.0.0",
     ignoreTrailingSlash: true,
   });
+
+  // middleware
   server.use(
     cors({
       origin: process.env.CORS_ORIGIN
@@ -27,6 +32,23 @@ connectDb().then(() => {
   server.use(restify.plugins.bodyParser());
   server.use(restify.plugins.multipartBodyParser());
   server.use(morgan("dev"));
+
+  // session
+
+  server.use(
+    // @ts-ignore
+    session({
+      secret: process.env.SESSION_SECRET as string,
+      resave: false,
+      saveUninitialized: false,
+      cookie: {
+        maxAge: 5 * 60 * 60 * 1000,
+        secure: false,
+        httpOnly: true,
+      },
+      store: connectMongo.create({ client: mongoose.connection.getClient() }),
+    })
+  );
 
   // Routes
   api.applyRoutes(server, "/api");

@@ -1,15 +1,11 @@
-import { Next, Request, Response } from "restify";
 import router from "restify-router";
-import { register } from "../../controllers/authController";
+import { signin, signup } from "../../controllers/authController";
+import { validate } from "../../middleware/validate";
 
 const auth = new router.Router();
 
-auth.post("/login", (req: Request, res: Response, next: Next) => {
-  res.send("Hello login page");
+auth.post("/signin", validate("auth/signin"), signin);
 
-  next();
-});
-
-auth.post("/register", register);
+auth.post("/signup", validate("auth/signup"), signup);
 
 export default auth;

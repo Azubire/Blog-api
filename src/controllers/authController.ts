@@ -3,8 +3,9 @@ import { User } from "../database/models/user";
 import logger from "../utils/logger";
 import { HTTPStatusCode } from "../../shared/enums/http";
 import { getUserByUserName } from "../../services/auth/authService";
+import { SessionData } from "express-session";
 
-export const register = async (req: Request, res: Response, next: Next) => {
+export const signup = async (req: Request, res: Response, next: Next) => {
   try {
     //check if user already exists
     const existingUser = await getUserByUserName(req.body.userName);
@@ -35,6 +36,66 @@ export const register = async (req: Request, res: Response, next: Next) => {
     });
 
     next();
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const signin = async (
+  req: Request & { session: any },
+  res: Response,
+  next: Next
+) => {
+  try {
+    //try finding user
+    const user = await User.findOne({ email: req.body.email }).select([
+      "+password",
+    ]);
+
+    if (!user) {
+      logger.error(`User: ${req.body.email} not found`, {
+        service: "User login",
+      });
+      res.status(HTTPStatusCode.NotFound);
+      throw new Error(`Incorrect credentials`);
+    }
+
+    const isMatch = await user.comparePassword(req.body.password);
+
+    if (!isMatch) {
+      logger.error(`Incorrect password for user: ${req.body.email}`, {
+        service: "User login",
+      });
+      res.status(HTTPStatusCode.BadRequest);
+      throw new Error("Incorrect credentials");
+    }
+
+    logger.info(`User: ${user.email} logged in successfully`, {
+      service: "User login",
+    });
+
+    req.session.regenerate(function (err: any) {
+      if (err) next(err);
+    });
+
+    req.session.user = {
+      _id: user._id,
+      userName: user.userName,
+      email: user.email,
+      role: user.role,
+    };
+
+    req.session.save(function (err: any) {
+      if (err) return next(err);
+    });
+
+    res.json({
+      success: true,
+      message: "logged in successfully",
+    });
+    logger.info({
+      session: req.session,
+    });
   } catch (error) {
     next(error);
   }

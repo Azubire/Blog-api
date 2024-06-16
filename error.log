@@ -1,0 +1,30 @@
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mMongoDB Connection Error: Error: querySrv ECONNREFUSED _mongodb._tcp.atlascluster.iwjajmw.mongodb.net\u001b[39m","service":"Blog-api","timestamp":"2024-06-16T13:18:57.990Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mMongoDB Connection Error: Error: querySrv ECONNREFUSED _mongodb._tcp.atlascluster.iwjajmw.mongodb.net\u001b[39m","service":"Blog-api","timestamp":"2024-06-16T13:20:15.008Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mMongoDB Connection Error: Error: querySrv ECONNREFUSED _mongodb._tcp.atlascluster.iwjajmw.mongodb.net\u001b[39m","service":"Blog-api","timestamp":"2024-06-16T13:22:22.573Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mMongoDB Connection Error: Error: querySrv ECONNREFUSED _mongodb._tcp.atlascluster.iwjajmw.mongodb.net\u001b[39m","service":"Blog-api","timestamp":"2024-06-16T13:26:55.315Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mMongoDB Connection Error: Error: querySrv ECONNREFUSED _mongodb._tcp.atlascluster.iwjajmw.mongodb.net\u001b[39m","service":"Blog-api","timestamp":"2024-06-16T13:30:11.362Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31m{ error: undefined }\u001b[39m","service":"Blog-api","timestamp":"2024-06-16T13:36:27.463Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31m{ error: undefined }\u001b[39m","service":"Blog-api","timestamp":"2024-06-16T13:38:14.438Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31m{\u001b[39m\n\u001b[31m  error: [Error [ValidationError]: \"username\" is required. \"email\" is not allowed to be empty. \"password\" is not allowed to be empty] {\u001b[39m\n\u001b[31m    _original: { username: '', email: '', password: '' },\u001b[39m\n\u001b[31m    details: [ [Object], [Object], [Object] ]\u001b[39m\n\u001b[31m  }\u001b[39m\n\u001b[31m}\u001b[39m","service":"Blog-api","timestamp":"2024-06-16T13:39:03.422Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mUser: azubirepeter@gmail.com already exists\u001b[39m","service":"User signup","timestamp":"2024-06-16T13:46:35.675Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-16T15:29:08.209Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-16T15:29:51.942Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-16T15:30:29.959Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-16T15:41:18.420Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-16T15:41:46.637Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-16T15:42:50.762Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-16T15:44:59.947Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-16T16:51:46.605Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-16T16:51:50.561Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-16T16:54:17.377Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-16T17:17:00.178Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-16T17:17:05.426Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-16T17:17:06.516Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-16T17:17:26.804Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-16T17:19:36.905Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-16T17:21:30.091Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-16T17:26:12.241Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-16T17:34:39.409Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-16T17:34:40.950Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-16T17:42:23.552Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-16T17:43:04.107Z"}

@@ -1,5 +1,5 @@
 import Joi from "joi";
-import { IAuthSignup } from "../../interfaces/user";
+import { IAuthLogin, IAuthSignup } from "../../interfaces/user";
 
 const authSignup = Joi.object<IAuthSignup>({
   userName: Joi.string().required().label("username"),
@@ -9,6 +9,14 @@ const authSignup = Joi.object<IAuthSignup>({
   password: Joi.string().required(),
 });
 
+const authLogin = Joi.object<IAuthLogin>({
+  email: Joi.string()
+    .email({ tlds: { allow: false } })
+    .required(),
+  password: Joi.string().required(),
+});
+
 export default {
-  "admin/auth/signup": authSignup,
+  "auth/signup": authSignup,
+  "auth/signin": authLogin,
 };
