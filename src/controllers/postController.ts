@@ -2,10 +2,25 @@ import { Request, Response, Next } from "restify";
 import logger from "../utils/logger";
 import { Post } from "../database/models/post";
 import { IUser } from "../interfaces/user";
-import { createPostHandler, getPostHandler } from "../../services/postService";
+import {
+  createPostHandler,
+  deletePostHandler,
+  getPostHandler,
+  getPostsHandler,
+  updatePostHandler,
+} from "../../services/postService";
 
 export const getPosts = async (req: Request, res: Response, next: Next) => {
-  res.send("posts");
+  try {
+    const posts = await getPostsHandler();
+    res.json({
+      success: true,
+      message: "Posts fetched successfully",
+      posts,
+    });
+  } catch (error) {
+    next(error);
+  }
 };
 
 export const getPost = async (req: Request, res: Response, next: Next) => {
@@ -50,11 +65,28 @@ export const createPost = async (
 };
 
 export const updatePost = async (req: Request, res: Response, next: Next) => {
-  res.send("update post");
+  try {
+    const updatedPost = await updatePostHandler(req.params.id, req.body);
+    res.json({
+      success: true,
+      message: "Post updated successfully",
+      updatedPost,
+    });
+  } catch (error) {
+    next(error);
+  }
 };
 
 export const deletePost = async (req: Request, res: Response, next: Next) => {
-  res.send("delete post");
+  try {
+    await deletePostHandler(req.params.id);
+    res.json({
+      success: true,
+      message: "Post deleted successfully",
+    });
+  } catch (error) {
+    next(error);
+  }
 };
 
 export const likePost = async (req: Request, res: Response, next: Next) => {

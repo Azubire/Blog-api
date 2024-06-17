@@ -8,7 +8,15 @@ const createPost = Joi.object<PartialSchemaMap<IPost>>({
   tags: Joi.array().label("tags"),
   meta: Joi.object<IPost["meta"]>().label("meta"),
 });
+const updatePost = Joi.object<PartialSchemaMap<IPost>>({
+  title: Joi.string().label("title"),
+  content: Joi.string().label("content"),
+  category: Joi.string().label("category"),
+  tags: Joi.array().label("tags"),
+  meta: Joi.object<IPost["meta"]>().label("meta"),
+});
 
 export default {
   "post/create": createPost,
+  "post/update": updatePost,
 };

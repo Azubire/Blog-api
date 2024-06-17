@@ -22,7 +22,7 @@ posts.post("/", authenticate, validate("post/create"), createPost);
 posts.post("/:id/like", authenticate, likePost);
 posts.post("/:id/share", authenticate, sharePost);
 posts.post("/:id/comment", authenticate, commentPost);
-posts.patch("/:id", authenticate, updatePost);
+posts.patch("/:id", authenticate, validate("post/update"), updatePost);
 posts.del("/:id", authenticate, deletePost);
 
 export default posts;
