@@ -2,13 +2,23 @@ import { Request, Response, Next } from "restify";
 import logger from "../utils/logger";
 import { Post } from "../database/models/post";
 import { IUser } from "../interfaces/user";
+import { createPostHandler } from "../../services/postService";
 
 export const getPosts = async (req: Request, res: Response, next: Next) => {
   res.send("posts");
 };
 
 export const getPost = async (req: Request, res: Response, next: Next) => {
-  res.send("post");
+  try {
+    const post = await Post.findById(req.params.id);
+    res.json({
+      success: true,
+      message: "Post fetched successfully",
+      post,
+    });
+  } catch (error) {
+    next(error);
+  }
 };
 
 export const createPost = async (
@@ -22,13 +32,9 @@ export const createPost = async (
   });
 
   try {
-    const post = await Post.create({
-      title: req.body.title,
-      content: req.body.content,
-      category: req.body.category,
-      tags: req.body.tags,
-      meta: req.body.meta,
-      author: req.session.user._id,
+    const post = await createPostHandler({
+      ...req.body,
+      author: req.session.user,
     });
 
     res.json({
