@@ -9,6 +9,8 @@ import {
   getPostsHandler,
   updatePostHandler,
 } from "../../services/postService";
+import { Types } from "mongoose";
+import { Comment } from "../database/models/comment";
 
 export const getPosts = async (req: Request, res: Response, next: Next) => {
   try {
@@ -166,8 +168,39 @@ export const sharePost = async (req: Request, res: Response, next: Next) => {
   }
 };
 
-export const commentPost = async (req: Request, res: Response, next: Next) => {
-  res.send("comment post");
+export const commentPost = async (
+  req: Request & { session: { user: IUser } },
+  res: Response,
+  next: Next
+) => {
+  try {
+    const data = {
+      content: req.body.content,
+      author: req.session.user._id,
+      post: req.params.id,
+    };
+
+    const comment = await Comment.create(data);
+
+    const post = await Post.findByIdAndUpdate(
+      req.params.id,
+      {
+        $push: {
+          comments: comment._id,
+        },
+      },
+      {
+        new: true,
+      }
+    );
+    res.json({
+      success: true,
+      message: "Post commented successfully",
+      post,
+    });
+  } catch (error) {
+    next(error);
+  }
 };
 
 export const postComments = async (req: Request, res: Response, next: Next) => {
