@@ -144,7 +144,26 @@ export const unlikePost = async (
 };
 
 export const sharePost = async (req: Request, res: Response, next: Next) => {
-  res.send("share post");
+  try {
+    const post = await Post.findByIdAndUpdate(
+      req.params.id,
+      {
+        $inc: {
+          shares: 1,
+        },
+      },
+      {
+        new: true,
+      }
+    );
+    res.json({
+      success: true,
+      message: "Post shared successfully",
+      post,
+    });
+  } catch (error) {
+    next(error);
+  }
 };
 
 export const commentPost = async (req: Request, res: Response, next: Next) => {
