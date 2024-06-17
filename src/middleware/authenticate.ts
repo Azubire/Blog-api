@@ -1,6 +1,6 @@
 import { Next, Request, Response } from "restify";
 import logger from "../utils/logger";
-import { HTTPStatusCode } from "../../shared/enums/http";
+import { HTTPStatusCode } from "../shared/enums/http";
 
 export const authenticate = async (
   req: Request & { session: any; user: any },

@@ -7,15 +7,33 @@ import {
   deletePostHandler,
   getPostHandler,
   getPostsHandler,
+  getUserPostsHandler,
   updatePostHandler,
-} from "../../services/postService";
-import { Types } from "mongoose";
+} from "../services/postService";
 import { Comment } from "../database/models/comment";
-import { TooManyRequestsError } from "restify-errors";
 
 export const getPosts = async (req: Request, res: Response, next: Next) => {
   try {
     const posts = await getPostsHandler();
+    res.json({
+      success: true,
+      message: "Posts fetched successfully",
+      posts,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const getUserPosts = async (
+  req: Request & { session: { user: IUser } },
+  res: Response,
+  next: Next
+) => {
+  try {
+    const posts = await getUserPostsHandler(
+      req.session.user._id as unknown as string
+    );
     res.json({
       success: true,
       message: "Posts fetched successfully",

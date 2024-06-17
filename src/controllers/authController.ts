@@ -1,9 +1,8 @@
 import { Request, Response, Next } from "restify";
 import { User } from "../database/models/user";
 import logger from "../utils/logger";
-import { HTTPStatusCode } from "../../shared/enums/http";
-import { getUserByUserName } from "../../services/auth/authService";
-import { SessionData } from "express-session";
+import { HTTPStatusCode } from "../shared/enums/http";
+import { getUserByUserName } from "../services/auth/authService";
 
 export const signup = async (req: Request, res: Response, next: Next) => {
   try {
