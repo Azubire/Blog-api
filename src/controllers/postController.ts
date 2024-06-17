@@ -89,8 +89,58 @@ export const deletePost = async (req: Request, res: Response, next: Next) => {
   }
 };
 
-export const likePost = async (req: Request, res: Response, next: Next) => {
-  res.send("like post");
+export const likePost = async (
+  req: Request & { session: { user: IUser } },
+  res: Response,
+  next: Next
+) => {
+  try {
+    const post = await Post.findByIdAndUpdate(
+      req.params.id,
+      {
+        $addToSet: {
+          likes: req.session.user._id,
+        },
+      },
+      {
+        new: true,
+      }
+    );
+    res.json({
+      success: true,
+      message: "Post liked successfully",
+      post,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const unlikePost = async (
+  req: Request & { session: { user: IUser } },
+  res: Response,
+  next: Next
+) => {
+  try {
+    const post = await Post.findByIdAndUpdate(
+      req.params.id,
+      {
+        $pull: {
+          likes: req.session.user._id,
+        },
+      },
+      {
+        new: true,
+      }
+    );
+    res.json({
+      success: true,
+      message: "Post unliked successfully",
+      post,
+    });
+  } catch (error) {
+    next(error);
+  }
 };
 
 export const sharePost = async (req: Request, res: Response, next: Next) => {

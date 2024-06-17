@@ -9,6 +9,7 @@ import {
   likePost,
   postComments,
   sharePost,
+  unlikePost,
   updatePost,
 } from "../../controllers/postController";
 import { validate } from "../../middleware/validate";
@@ -20,6 +21,7 @@ posts.get("/:id", getPost);
 posts.get("/:id/comments", postComments);
 posts.post("/", authenticate, validate("post/create"), createPost);
 posts.post("/:id/like", authenticate, likePost);
+posts.post("/:id/unlike", authenticate, unlikePost);
 posts.post("/:id/share", authenticate, sharePost);
 posts.post("/:id/comment", authenticate, commentPost);
 posts.patch("/:id", authenticate, validate("post/update"), updatePost);
