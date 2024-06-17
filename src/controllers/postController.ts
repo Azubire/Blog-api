@@ -11,6 +11,7 @@ import {
 } from "../../services/postService";
 import { Types } from "mongoose";
 import { Comment } from "../database/models/comment";
+import { TooManyRequestsError } from "restify-errors";
 
 export const getPosts = async (req: Request, res: Response, next: Next) => {
   try {
@@ -204,5 +205,17 @@ export const commentPost = async (
 };
 
 export const postComments = async (req: Request, res: Response, next: Next) => {
-  res.send("post comments");
+  try {
+    const comments = await Comment.find({
+      post: req.params.id,
+    });
+
+    res.json({
+      success: true,
+      message: "Comments fetched successfully",
+      comments,
+    });
+  } catch (error) {
+    next(error);
+  }
 };
