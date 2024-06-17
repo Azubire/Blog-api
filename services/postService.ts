@@ -8,3 +8,8 @@ export const createPostHandler = async (data: IPost) => {
 
   return post;
 };
+
+export const getPostHandler = async (id: string) => {
+  const post = await Post.findById(id);
+  return post;
+};

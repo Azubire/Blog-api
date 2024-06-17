@@ -2,7 +2,7 @@ import { Request, Response, Next } from "restify";
 import logger from "../utils/logger";
 import { Post } from "../database/models/post";
 import { IUser } from "../interfaces/user";
-import { createPostHandler } from "../../services/postService";
+import { createPostHandler, getPostHandler } from "../../services/postService";
 
 export const getPosts = async (req: Request, res: Response, next: Next) => {
   res.send("posts");
@@ -10,7 +10,9 @@ export const getPosts = async (req: Request, res: Response, next: Next) => {
 
 export const getPost = async (req: Request, res: Response, next: Next) => {
   try {
-    const post = await Post.findById(req.params.id);
+    logger.info({ params: req.params });
+
+    const post = await getPostHandler(req.params.id);
     res.json({
       success: true,
       message: "Post fetched successfully",
