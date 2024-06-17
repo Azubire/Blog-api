@@ -3,6 +3,7 @@ import router from "restify-router";
 
 import authRouter from "./auth";
 import postRouter from "./posts";
+import categoryRouter from "./posts/category";
 
 import { authenticate } from "../middleware/authenticate";
 
@@ -14,11 +15,13 @@ api.get("/", authenticate, (req: Request, res: Response, next: Next) => {
     success: true,
     message: "Welcome to Syncline Blog API v1.0.0 ⚡⚡⚡",
   });
-  next();
 });
 
 // auth routes
 api.add("/auth", authRouter);
+
+// category routes
+api.add("/category", categoryRouter);
 
 // post routes
 api.add("/posts", postRouter);

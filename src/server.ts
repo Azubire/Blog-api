@@ -30,7 +30,7 @@ connectDb().then(() => {
   );
   server.use(restify.plugins.throttle({ burst: 5, rate: 0.5, ip: true }));
   server.use(restify.plugins.bodyParser());
-  server.use(restify.plugins.multipartBodyParser());
+  // server.use(restify.plugins.multipartBodyParser());
   server.use(morgan("dev"));
 
   // session

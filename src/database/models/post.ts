@@ -1,6 +1,4 @@
 import { Schema, model } from "mongoose";
-import { IUSerMethods, IUser } from "../../interfaces/user";
-import bcrypt from "bcrypt";
 import { IPost } from "../../interfaces/post";
 
 export const postSchema = new Schema<IPost>(

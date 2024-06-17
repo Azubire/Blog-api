@@ -9,9 +9,6 @@ export const authenticate = async (
 ) => {
   try {
     const user = req.session.user;
-    logger.info({ session: req.session });
-    logger.info({ user });
-    // user?._id
 
     if (!user) {
       logger.error("user not found");
@@ -20,8 +17,6 @@ export const authenticate = async (
     }
 
     req.user = user;
-
-    next();
   } catch (error) {
     next(error);
   }
