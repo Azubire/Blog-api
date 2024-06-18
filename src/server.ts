@@ -24,7 +24,7 @@ connectDb().then(() => {
   // middleware
 
   const cors = corsMiddleware({
-    origins: ["http://localhost:5173"],
+    origins: process.env.CORS_ORIGIN?.split(",") || ["http://localhost:5173"],
     credentials: true,
   });
 
