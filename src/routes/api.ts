@@ -6,6 +6,7 @@ import postRouter from "./posts";
 import categoryRouter from "./posts/category";
 
 import { authenticate } from "../middleware/authenticate";
+import { getUserPosts } from "../controllers/postController";
 
 const api = new router.Router();
 
@@ -21,7 +22,9 @@ api.get("/", authenticate, (req: Request, res: Response, next: Next) => {
 api.add("/auth", authRouter);
 
 // category routes
-api.add("/category", categoryRouter);
+api.add("/categories", categoryRouter);
+
+api.get("/author-posts", getUserPosts);
 
 // post routes
 api.add("/posts", postRouter);

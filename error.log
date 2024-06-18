@@ -36,3 +36,41 @@
 {"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-16T18:07:42.061Z"}
 {"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-16T18:07:53.898Z"}
 {"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-16T21:05:28.478Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-18T01:52:59.465Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-18T01:54:39.933Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-18T01:55:40.339Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-18T01:55:59.292Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-18T02:03:57.679Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mUser: loliki3538@ociun.com not found\u001b[39m","service":"User login","timestamp":"2024-06-18T02:18:40.616Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mUser: loliki3538@ociun.com not found\u001b[39m","service":"User login","timestamp":"2024-06-18T02:18:48.923Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mUser: test1@gmail.com not found\u001b[39m","service":"User login","timestamp":"2024-06-18T02:19:10.682Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-18T02:20:35.705Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-18T02:21:14.489Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-18T02:23:03.679Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-18T02:24:06.609Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-18T02:24:10.460Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-18T02:24:40.828Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mMongoDB Connection Error: Error: read ECONNRESET\u001b[39m","service":"Blog-api","timestamp":"2024-06-18T02:27:33.402Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-18T02:29:56.278Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-18T02:30:16.832Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-18T02:30:26.970Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-18T02:30:30.795Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-18T02:31:04.111Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-18T02:31:18.278Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-18T02:34:48.435Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-18T02:34:58.743Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-18T02:35:58.165Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-18T02:37:35.917Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-18T02:41:18.393Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-18T02:42:09.675Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-18T02:43:38.354Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-18T02:46:22.911Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-18T02:46:29.390Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-18T02:46:31.390Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-18T02:46:49.979Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-18T02:47:32.453Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-18T02:53:00.159Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-18T03:42:45.068Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-18T05:23:38.793Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31mMongoDB Connection Error: MongoNetworkTimeoutError: connection timed out\u001b[39m","service":"Blog-api","timestamp":"2024-06-18T06:53:45.621Z"}
+{"level":"\u001b[31merror\u001b[39m","message":"\u001b[31muser not found\u001b[39m","service":"Blog-api","timestamp":"2024-06-18T09:43:00.305Z"}

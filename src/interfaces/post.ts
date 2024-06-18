@@ -14,8 +14,8 @@ export interface IComment {
 export interface IPost {
   _id: Types.ObjectId;
   title: string;
-  slug: string;
-  meta: {
+  slug?: string;
+  meta?: {
     description: string;
     keywords: string[];
     title: string;
@@ -23,9 +23,9 @@ export interface IPost {
   content: string;
   author: IUser;
   category: ICategory;
-  tags: string[];
-  media: {
-    type: "image" | "video";
+  tags?: string[];
+  media?: {
+    type: "image" | "video" | "auto" | "raw";
     url: string;
   };
   likes: Types.ObjectId[] | IUser[];
@@ -33,4 +33,15 @@ export interface IPost {
   shares: number;
   createdAt: Date;
   updatedAt: Date;
+}
+
+export interface ICreatePost {
+  title: string;
+  content: string;
+  category: number;
+  media?: any;
+  tags?: string;
+  metaTitle?: string;
+  metaDescription?: string;
+  metaKeywords?: string;
 }

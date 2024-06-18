@@ -12,7 +12,7 @@ export const getCategories = async (
     res.json({
       success: true,
       message: "Categories fetched successfully",
-      categories,
+      data:categories,
     });
   } catch (error) {
     next(error);

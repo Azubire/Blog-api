@@ -91,6 +91,12 @@ export const signin = async (
     res.json({
       success: true,
       message: "logged in successfully",
+      data: {
+        userName: user.userName,
+        email: user.email,
+        role: user.role,
+        _id: user._id,
+      },
     });
     logger.info({
       session: req.session,

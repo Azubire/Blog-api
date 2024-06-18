@@ -9,6 +9,8 @@ import session from "express-session";
 import connectMongo from "connect-mongo";
 import mongoose from "mongoose";
 
+import corsMiddleware from "restify-cors-middleware2";
+
 dotenv.config();
 
 connectDb().then(() => {
@@ -20,14 +22,15 @@ connectDb().then(() => {
   });
 
   // middleware
-  server.use(
-    cors({
-      origin: process.env.CORS_ORIGIN
-        ? process.env.CORS_ORIGIN.split(",")
-        : "*",
-      credentials: true,
-    })
-  );
+
+  const cors = corsMiddleware({
+    origins: ["http://localhost:5173"],
+    credentials: true,
+  });
+
+  server.pre(cors.preflight);
+  server.use(cors.actual);
+
   server.use(restify.plugins.throttle({ burst: 5, rate: 0.5, ip: true }));
   server.use(restify.plugins.bodyParser());
   // server.use(restify.plugins.multipartBodyParser());

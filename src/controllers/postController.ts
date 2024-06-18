@@ -11,14 +11,36 @@ import {
   updatePostHandler,
 } from "../services/postService";
 import { Comment } from "../database/models/comment";
+import { ICreatePost, IPost } from "../interfaces/post";
+import { uploadFile } from "../utils/cloudinary";
+import fs from "node:fs";
 
 export const getPosts = async (req: Request, res: Response, next: Next) => {
+  const page = parseInt(req.query.page) || 1;
+  const limit = parseInt(req.query.limit) || 10;
+  const offset = (page - 1) * limit;
+
   try {
-    const posts = await getPostsHandler();
+    const posts = await getPostsHandler(limit, offset);
+    const total = await Post.countDocuments({});
+    const totalPages = Math.ceil(total / limit);
+
     res.json({
       success: true,
       message: "Posts fetched successfully",
-      posts,
+      data: {
+        posts,
+        pagination: {
+          page,
+          totalPages,
+          total,
+          limit: limit,
+          previousPage: page > 1 ? page - 1 : undefined,
+          nextPage: page < totalPages ? page + 1 : undefined,
+          hasNextPage: page < totalPages,
+          hasPreviousPage: page > 1,
+        },
+      },
     });
   } catch (error) {
     next(error);
@@ -37,7 +59,7 @@ export const getUserPosts = async (
     res.json({
       success: true,
       message: "Posts fetched successfully",
-      posts,
+      data: { posts },
     });
   } catch (error) {
     next(error);
@@ -52,7 +74,9 @@ export const getPost = async (req: Request, res: Response, next: Next) => {
     res.json({
       success: true,
       message: "Post fetched successfully",
-      post,
+      data: {
+        post,
+      },
     });
   } catch (error) {
     next(error);
@@ -64,14 +88,37 @@ export const createPost = async (
   res: Response,
   next: Next
 ) => {
-  logger.info({
-    body: req.body,
-    files: req.files,
-  });
-
   try {
+    const postData: Partial<IPost> = {
+      title: req.body.title,
+      content: req.body.content,
+      category: req.body.category,
+      tags: req.body?.tags?.split(","),
+      meta: {
+        title: req.body?.metaTitle,
+        description: req.body?.metaDescription,
+        keywords: req.body?.tags?.split(","),
+      },
+    };
+
+    if (req.files && req.files.media && req.files.media) {
+      const filePath = req.files.media.path;
+      const arrayBuffer = fs.readFileSync(filePath);
+      const file = await uploadFile(
+        arrayBuffer,
+        req.files.media.type as string,
+        "posts"
+      );
+
+      logger.info({ file });
+      postData.media = {
+        url: file.secure_url,
+        type: file.resource_type,
+      };
+    }
+
     const post = await createPostHandler({
-      ...req.body,
+      ...postData,
       author: req.session.user,
     });
 
@@ -81,6 +128,7 @@ export const createPost = async (
       post,
     });
   } catch (error) {
+    logger.info({ error });
     next(error);
   }
 };
@@ -226,12 +274,12 @@ export const postComments = async (req: Request, res: Response, next: Next) => {
   try {
     const comments = await Comment.find({
       post: req.params.id,
-    });
+    }).populate("author");
 
     res.json({
       success: true,
       message: "Comments fetched successfully",
-      comments,
+      data: { comments },
     });
   } catch (error) {
     next(error);
