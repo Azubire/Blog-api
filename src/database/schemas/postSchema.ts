@@ -7,9 +7,9 @@ const createPost = Joi.object<ICreatePost>({
   category: Joi.string().required().label("category"),
   media: Joi.any().label("media"),
   tags: Joi.any().label("tags"),
-  metaTitle: Joi.string().label("meta"),
-  metaDescription: Joi.string().label("meta"),
-  metaKeywords: Joi.string().label("meta"),
+  metaTitle: Joi.any().label("metaTitle").optional(),
+  metaDescription: Joi.any().label("metaDescription").optional(),
+  metaKeywords: Joi.any().label("metaKeywords").optional(),
 });
 
 const updatePost = Joi.object<ICreatePost>({

@@ -1,0 +1,21 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const restify_router_1 = __importDefault(require("restify-router"));
+const authenticate_1 = require("../../middleware/authenticate");
+const postController_1 = require("../../controllers/postController");
+const validate_1 = require("../../middleware/validate");
+const posts = new restify_router_1.default.Router();
+posts.get("/", postController_1.getPosts);
+posts.get("/:id", postController_1.getPost);
+posts.get("/:id/comments", postController_1.postComments);
+posts.post("/", authenticate_1.authenticate, (0, validate_1.validate)("post/create"), postController_1.createPost);
+posts.post("/:id/like", authenticate_1.authenticate, postController_1.likePost);
+posts.post("/:id/unlike", authenticate_1.authenticate, postController_1.unlikePost);
+posts.post("/:id/share", authenticate_1.authenticate, postController_1.sharePost);
+posts.post("/:id/comment", authenticate_1.authenticate, postController_1.commentPost);
+posts.patch("/:id", authenticate_1.authenticate, (0, validate_1.validate)("post/update"), postController_1.updatePost);
+posts.del("/:id", authenticate_1.authenticate, postController_1.deletePost);
+exports.default = posts;
